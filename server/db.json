@@ -1,0 +1,65 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "name": "Arepa de Queso",
+      "price": 6,
+      "description": "Soft grilled arepa with melted cheese.",
+      "category": "arepas"
+    },
+    {
+      "id": 2,
+      "name": "Empanada de Pollo",
+      "price": 4,
+      "description": "Crispy empanada filled with chicken.",
+      "category": "empanadas"
+    },
+    {
+      "id": 3,
+      "name": "Arepa con Hogao",
+      "price": 7,
+      "description": "Arepa topped with Colombian tomato-onion sauce.",
+      "category": "arepas"
+    }
+  ],
+  "cart": [],
+  "orders": [
+    {
+      "customerName": "Erick ",
+      "items": [
+        {
+          "id": 1,
+          "name": "Arepa de Queso",
+          "price": 6,
+          "description": "Soft grilled arepa with melted cheese.",
+          "category": "arepas"
+        },
+        {
+          "id": 2,
+          "name": "Empanada de Pollo",
+          "price": 4,
+          "description": "Crispy empanada filled with chicken.",
+          "category": "empanadas"
+        }
+      ],
+      "createdAt": "2026-04-10T19:45:07.453Z",
+      "id": 1
+    }
+  ],
+  "specials": [
+    {
+      "id": 1,
+      "title": "Lunch Combo",
+      "details": "2 empanadas + 1 drink"
+    }
+  ],
+  "reviews": [
+    {
+      "customerName": "Erick ",
+      "comment": "it was great",
+      "rating": 5,
+      "createdAt": "2026-04-10T19:57:04.761Z",
+      "id": 1
+    }
+  ]
+}
