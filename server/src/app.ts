@@ -12,8 +12,8 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(cors({
   origin: [
-    "http://localhost:5173",
-    "http://localhost:3000"
+     "http://localhost:5173",                    // local dev
+    "https://project-04-frontend-xyz123.vercel.app"  // production
   ]
 }));
 app.use(express.json());
