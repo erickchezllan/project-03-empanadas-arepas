@@ -1,212 +1,109 @@
-\# 🇨🇴 Colombian Empanadas \& Arepas React App
+# Project 04: Full-Stack Colombian Food CRUD App
+**Erick Sanchez** — Software Engineering Bootcamp — April 2026
 
+## 🎯 Live Deployment
+| Component | URL |
+|-----------|-----|
+| **Frontend** | [https://your-frontend.vercel.app](https://your-frontend.vercel.app) |
+| **Backend API** | [https://your-backend.onrender.com/api/items](https://your-backend.onrender.com/api/items) |
+| **Database** | Neon PostgreSQL |
 
-
-!\[screenshot](screenshot.png)
-
-
-
-Live Demo: https://your-username.github.io/project-03-empanadas-arepas
-
-
-
-\## ✨ Features
-
-\- 🔍 Browse empanadas and arepas menu from API
-
-\- 🛒 Add items to global cart (React Context)
-
-\- 📦 Place orders (POST to `/orders`)
-
-\- ⭐ Submit reviews (POST to `/reviews`)
-
-\- 📱 Responsive design (mobile-first)
-
-\- 🔄 Real-time API sync (GET + POST)
-
-
-
-\## 🛠️ Tech Stack
-
-React 19 | Vite | json-server | React Router | React Context | Fetch API
-
-
+## 🏗️ 3-Tier Architecture
+React Frontend (Presentation Layer)
+↓
+Express Backend (Application Layer)
+↓ Routes → Controllers → Services
+↓
+PostgreSQL Database (Data Layer)
 
 text
 
+## ✅ All Requirements Met
 
+### Backend Architecture
+✅ Routes: GET/POST/PUT/DELETE /api/items
+✅ Controllers: Request handling + validation
+✅ Services: PostgreSQL CRUD + business logic
+✅ Database: Neon PostgreSQL + pg library
 
-\## 🚀 Quick Start
+text
 
+### TypeScript Typing
+✅ Item interface (services/controllers)
+✅ ApiResponse<T> wrapper (all endpoints)
+✅ Request<{ id: string }> (route params)
+✅ Proper Promise<Item[]> return types
 
+text
 
-\### 1. Clone the repo
+### Full CRUD Operations
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/items` | List all menu items |
+| GET | `/api/items/:id` | Single item |
+| POST | `/api/items` | Create new item |
+| PUT | `/api/items/:id` | Update item |
+| DELETE | `/api/items/:id` | Delete item |
 
+### Tech Stack
+Frontend: React + Vite + TypeScript
+Backend: Node.js + Express + TypeScript
+Database: PostgreSQL (Neon Serverless)
+Deployment: Vercel (Frontend) + Render (Backend)
+
+text
+
+## 🚀 Local Setup
+
+### Backend
 ```bash
-
-git clone https://github.com/erickchezllan/project-03-empanadas-arepas.git
-
-cd project-03-empanadas-arepas
-
-```
-
-
-
-\### 2. Start the backend API
-
-```bash
-
 cd server
-
 npm install
-
-npm start
-
-```
-
-Backend runs at `http://localhost:3000`
-
-
-
-\### 3. Start the frontend
-
-```bash
-
-cd ../client
-
-npm install
-
+echo "DATABASE_URL=your_neon_url" > .env
 npm run dev
-
+# http://localhost:3000/api/items
 ```
 
-Frontend runs at `http://localhost:5173`
+### Frontend
+```bash
+cd client
+npm install
+echo "VITE_API_URL=http://localhost:3000/api" > .env
+npm run dev
+# http://localhost:5173
+```
 
-
-
-\### 4. Test it
-
-\- Browse empanadas \& arepas on Home
-
-\- Add to cart
-
-\- Place order
-
-\- Submit reviews on Specials page
-
-
-
-\## 📁 Project Structure
-
-project-03-empanadas-arepas/
-
-├── client/ (React + Vite frontend)
-
-│ ├── src/
-
-│ │ ├── App.jsx
-
-│ │ ├── context/
-
-│ │ ├── pages/
-
-│ │ └── components/
-
-│ └── .env
-
-└── server/ (json-server backend)
-
-├── db.json
-
-├── server.js
-
-└── package.json
-
-
+## 📊 API Documentation
+GET /api/items → { success: true, data: Item[] }
+GET /api/items/:id → { success: true, data: Item }
+POST /api/items → { success: true, data: new Item }
+PUT /api/items/:id → { success: true, data: updated Item }
+DELETE /api/items/:id → { success: true, data: { message } }
 
 text
 
+## 🗄️ Database Schema
 
+```sql
+CREATE TABLE menu_items (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  description TEXT,
+  price DECIMAL(10,2) NOT NULL,
+  category VARCHAR(50),
+  image_url VARCHAR(500),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
 
-\## 🎯 User Stories
+## 🎯 Features Demo
 
-1\. Browse Colombian street foods (empanadas, arepas)
+1. **Browse** Colombian empanadas/arepas from PostgreSQL
+2. **Add** new menu items (POST)
+3. **Edit** prices/descriptions (PUT)  
+4. **Delete** items (DELETE)
+5. **Real-time** data persistence
+6. **Responsive** design from Project 03
 
-2\. Add items to cart and review order
-
-3\. Submit orders and customer reviews
-
-
-
-\## 📊 API Endpoints
-
-GET /items - Menu items
-
-GET /orders - Customer orders
-
-POST /orders - Place new order
-
-GET /specials - Today's specials
-
-GET /reviews - Customer reviews
-
-POST /reviews - Submit new review
-
-
-
-text
-
-
-
-\## 🖥️ Screenshots
-
-
-
-\*\*Menu Page\*\*
-
-!\[Menu](screenshot-menu.png)
-
-
-
-\*\*Cart Page\*\*
-
-!\[Cart](screenshot-cart.png)
-
-
-
-\*\*Specials Page\*\*
-
-!\[Specials](screenshot-specials.png)
-
-
-
-\## 📝 Built with
-
-\- React 19 (useState, useEffect, useContext)
-
-\- Vite (fast dev server)
-
-\- json-server@0.17.4 (fake REST API)
-
-\- React Router (3+ page navigation)
-
-\- Global state (CartContext)
-
-\- Local state (forms)
-
-\- Responsive CSS Grid
-
-
-
-\## 🚀 Deployed with GitHub Pages
-
-Frontend deployed at GitHub Pages
-
-Backend uses json-server for local development
-
-
-
-\---
-
-\*\*Erick Sanchez\*\* • Software Engineering Bootcamp • April 2026
-
+## 📈 GitHub Commits
+[View commit history](https://github.com/erickchezllan/project-04-full-stack/commits/main)
